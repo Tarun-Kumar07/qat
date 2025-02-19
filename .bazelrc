@@ -1,5 +1,5 @@
 # Platform independent configuration
-build --workspace_status_command "python config/workspace-status.py"
+build --workspace_status_command "python3 config/workspace-status.py"
 build --incompatible_enable_cc_toolchain_resolution
 
 # We would turn this on globally, but unfortunately
@@ -51,6 +51,7 @@ build:msvc --copt=/wd4805 --host_copt=/wd4805 # comparisons between bool and int
 build:release --copt=-DNDEBUG
 build:release --copt=-Os 
 build:release --copt=-fno-unroll-loops
+build:release --copt=-Wno-poison-system-directories
 
 build:debug -c dbg
 build:debug --copt=-g 
