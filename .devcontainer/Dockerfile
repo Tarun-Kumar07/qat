@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/base:ubuntu-22.04 
+FROM ubuntu:22.04
 ADD https://apt.llvm.org/llvm-snapshot.gpg.key /llvm-snapshot.gpg.key
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
