@@ -7,6 +7,7 @@ microsoft_add_library(Logging)
 microsoft_add_library(TestTools)
 microsoft_add_library_tests(TestTools AdaptorFactory Logging GroupingPass FunctionReplacementPass)
 
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -rdynamic")
 microsoft_add_library(Commandline)
 microsoft_add_library_tests(Commandline Logging GroupingPass FunctionReplacementPass)
 

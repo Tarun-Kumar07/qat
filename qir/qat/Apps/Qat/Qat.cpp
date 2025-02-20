@@ -183,11 +183,12 @@ int main(int argc, char const** argv)
         {
 #ifndef _WIN32
             // TODO (issue-47): Add support for multiple loads
-            void* handle = dlopen(config.load().c_str(), RTLD_LAZY);
+            void* handle = dlopen(config.load().c_str(), RTLD_LAZY | RTLD_GLOBAL);
 
             if (handle == nullptr)
             {
-                std::cerr << "Invalid component " << config.load() << std::endl;
+                // std::cerr << "Invalid component " << config.load() << std::endl;
+                std::cerr << "Invalid component " << config.load() << ": " << dlerror() << std::endl;
             }
             else
             {
